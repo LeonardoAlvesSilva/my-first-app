@@ -1,112 +1,54 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, TextInput, TouchableOpacity} from'react-native';
 
-import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+export default class App extends Component {
+  render() {
+    return (
+      <View style = {styles.container}>
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+        <TextInput style={styles.input} placeholder='Entrar com usuário'/>
+        <TextInput style={styles.input} secureTextEntry= {true} placeholder='Entrar com senha'/>
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+        <TouchableOpacity style={styles.bttn}>
+          <Text style={styles.bttntext}>
+            >>  
+          </Text>
+        </TouchableOpacity>
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+      </View>
+    )
+    }
+  }
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+  const styles = StyleSheet.create({
+    container: {
+      color: '#fff',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: 1
+      
+    },
+    input:{
+      marginTop: 10 ,
+      paddingLeft: 70,
+      backgroundColor:'#444',
+      width: 250,
+      borderRadius: 10
+    },
+    bttn:{
+      borderRadius :100,
+      backgroundColor: '#444',
+      marginTop: 70,
+      width: 50,
+      height: 50
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+    },
+    bttntext:{
+      fontSize: 35,
+      color: '#fff',
+      marginLeft: 7
 
-export default App;
+    }
+  })
+
